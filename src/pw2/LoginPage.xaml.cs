@@ -31,7 +31,7 @@ namespace pw2
         {
 
             string filePath = Path.Combine(FileSystem.AppDataDirectory, "User.csv");
-            
+
             using (StreamWriter writer = new StreamWriter(filePath, false))
             {
                 foreach (var user in users)
@@ -74,9 +74,9 @@ namespace pw2
 
             if (!IsValidPassword(password))  //password rules
             {
-                await DisplayAlert("Error", 
+                await DisplayAlert("Error",
                     "Password must be at least 8 characters long and include:\n" +
-                    "- Number \n- Lowercase letter\n- Uppercase letter\n- One Symbol (!@#€&%/)", 
+                    "- Number \n- Lowercase letter\n- Uppercase letter\n- One Symbol (!@#€&%/)",
                     "OK");
                 return;
             }
@@ -95,5 +95,11 @@ namespace pw2
             await DisplayAlert("Done", "Account created", "Ok");
             await Shell.Current.GoToAsync("..");
         }
+        
+        private async void OnForgotPasswordClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("RecoverPasswordPage");
+        }
+
     }
 }

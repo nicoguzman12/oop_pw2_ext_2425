@@ -26,6 +26,14 @@
             <Button Text="Register"
                     x:Name="registerButton"
                     Clicked="OnRegisterClicked"/>
+
+            <Button Text="Forgot Password?"
+                x:Name="forgotPasswordButton"
+                Clicked="OnForgotPasswordClicked"
+                BackgroundColor="Transparent"
+                TextColor="Blue"
+                HorizontalOptions="Center" />
+                
         </StackLayout>
     </ScrollView>
 </ContentPage>
