@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pw2.OperationsPage"
+             Title="Operations">
+
+    <VerticalStackLayout Padding="30" Spacing="15">
+
+        <Label Text="User Info" FontSize="26" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Label x:Name="nameLabel" FontSize="20" />
+        <Label x:Name="usernameLabel" FontSize="20" />
+        <Label x:Name="passwordLabel" FontSize="20" />
+        <Label x:Name="operationsLabel" FontSize="20" TextColor="blue" />
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Green" Clicked="OnBackClicked" />
+            <Button Text="Logout" Clicked="OnLogoutClicked" />
+            <Button Text="Exit" Clicked="OnExitClicked" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
