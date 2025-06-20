@@ -41,13 +41,9 @@ namespace oop_pw2_ext_2425
             }
         }
 
-        private bool IsValidPassword(string password)
+        private bool IsValidPassword(string password)  //sees if password is valid comparing to rules 
         {
-            return password.Length >= 8 &&
-                   password.Any(char.IsUpper) &&
-                   password.Any(char.IsLower) &&
-                   password.Any(char.IsDigit) &&
-                   password.IndexOfAny("!@#€&%/".ToCharArray()) >= 0;
+            return password.Length >= 8 && password.Any(char.IsUpper) && password.Any(char.IsLower) && password.Any(char.IsDigit) && password.IndexOfAny("!@#€&%/".ToCharArray()) >= 0;
         }
 
         private async void OnRegisterClicked(object sender, EventArgs e)
