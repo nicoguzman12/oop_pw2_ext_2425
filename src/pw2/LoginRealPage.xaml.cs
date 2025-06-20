@@ -53,6 +53,6 @@ public partial class LoginRealPage : ContentPage
 
         await DisplayAlert("Success", $"Welcome, {userFound.Name}!", "Ok");
 
-        await Shell.Current.GoToAsync("ConversorPage");
+        await Shell.Current.GoToAsync("///ConversorPage");
     }
 }
