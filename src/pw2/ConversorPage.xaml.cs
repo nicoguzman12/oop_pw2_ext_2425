@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Storage; // Make sure this is included for Preferences and FileSystem
+using Microsoft.Maui.Storage; 
 using pw2.conversions;
 
 namespace pw2
@@ -89,16 +89,18 @@ namespace pw2
                         await DisplayAlert("Error", "Select a valid conversion.", "OK");
                         return;
                 }
-                // You were missing these lines from your original code:
-                resultLabel.Text = result; // Assuming you have a Label named resultLabel to display the output
-                IncrementOperationCount(); // Call this after a successful conversion
+                resultLabel.Text = result; 
+                string username = Preferences.Get("CurrentUser", "");
+                string bits = "";
+                SaveOperation(username, input, bits, command, result);               
+                IncrementOperationCount(); 
 
-            } 
-            catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Conversion failed: {ex.Message}", "OK");
             }
-        } 
+        }
 
         private void OnKeypadClicked(object sender, EventArgs e)
         {
@@ -116,5 +118,17 @@ namespace pw2
         {
             await Shell.Current.GoToAsync(nameof(OperationsPage));
         }
+
+        private void SaveOperation(string username, string input, string bits, string operationType, string output)
+        {
+            string filePath = "operations.csv";
+
+            StreamWriter writer = new StreamWriter(filePath, true);
+            writer.WriteLine(username + "," + input + "," + bits + "," + operationType + "," + output);
+            writer.Close();
+        }
+
     }
+    
+
 }

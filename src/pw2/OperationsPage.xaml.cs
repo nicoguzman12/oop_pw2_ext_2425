@@ -23,9 +23,11 @@ namespace pw2
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     string line;
+
                     while ((line = reader.ReadLine()) != null)
                     {
                         User user = User.FromCsv(line);
+
                         if (user.Username == currentUsername)
                         {
                             nameLabel.Text = "Name: " + user.Name;
@@ -33,6 +35,29 @@ namespace pw2
                             passwordLabel.Text = "Password: " + user.Password;
                             operationsLabel.Text = "Operations done: " + user.OperationCount;
                             break;
+                        }
+                    }
+                }
+            }
+
+            // Load operations history
+            string opFilePath = Path.Combine(FileSystem.AppDataDirectory, "operations.csv");
+            if (File.Exists(opFilePath))
+            {
+                using (StreamReader reader = new StreamReader(opFilePath))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var parts = line.Split(',');
+                        if (parts.Length == 5 && parts[0] == currentUsername)
+                        {
+                            Label opLabel = new Label
+                            {
+                                Text = $"Input: {parts[1]}, Bits: {parts[2]}, Type: {parts[3]}, Output: {parts[4]}",
+                                FontSize = 14
+                            };
+                            operationsContainer.Children.Add(opLabel);
                         }
                     }
                 }
@@ -47,7 +72,7 @@ namespace pw2
         private async void OnLogoutClicked(object sender, EventArgs e)
         {
             Preferences.Remove("CurrentUser");
-            await Shell.Current.GoToAsync("//LoginPage"); // Asegúrate de que el route esté en AppShell.xaml
+            await Shell.Current.GoToAsync("//LoginPage");
         }
 
         private void OnExitClicked(object sender, EventArgs e)

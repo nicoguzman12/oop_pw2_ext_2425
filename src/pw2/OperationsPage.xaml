@@ -10,12 +10,16 @@
         <Label x:Name="nameLabel" FontSize="20" />
         <Label x:Name="usernameLabel" FontSize="20" />
         <Label x:Name="passwordLabel" FontSize="20" />
-        <Label x:Name="operationsLabel" FontSize="20" TextColor="blue" />
-        <HorizontalStackLayout Spacing="10">
-            <Button Text="Green" Clicked="OnBackClicked" />
+        <Label x:Name="operationsLabel" FontSize="20" TextColor="Blue" />
+
+        <Label Text="History" FontSize="20" FontAttributes="Bold" />
+        <VerticalStackLayout x:Name="operationsContainer" Spacing="10" />
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="Back" Clicked="OnBackClicked" />
             <Button Text="Logout" Clicked="OnLogoutClicked" />
             <Button Text="Exit" Clicked="OnExitClicked" />
         </HorizontalStackLayout>
-
+        
     </VerticalStackLayout>
 </ContentPage>
