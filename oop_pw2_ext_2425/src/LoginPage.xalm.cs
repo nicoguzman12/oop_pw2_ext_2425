@@ -60,7 +60,7 @@ namespace oop_pw2_ext_2425
                 return;
             }
 
-            if (name.Equals(username, StringComparison.OrdinalIgnoreCase)) //compare user and username
+            if (name == username) //compare user and username
             {
                 await DisplayAlert("Error", "Name and username must be different.", "Ok");
                 return;
