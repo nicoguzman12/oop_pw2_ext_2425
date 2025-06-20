@@ -31,9 +31,9 @@
                 x:Name="forgotPasswordButton"
                 Clicked="OnForgotPasswordClicked"
                 BackgroundColor="Transparent"
-                TextColor="Blue"
+                TextColor="White"
                 HorizontalOptions="Center" />
-                
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

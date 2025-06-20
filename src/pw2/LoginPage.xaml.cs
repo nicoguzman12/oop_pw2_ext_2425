@@ -98,7 +98,7 @@ namespace pw2
         
         private async void OnForgotPasswordClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("RecoverPasswordPage");
+            await Shell.Current.GoToAsync("///RecoverPasswordPage");
         }
 
     }
