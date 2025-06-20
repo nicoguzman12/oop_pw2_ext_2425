@@ -1,6 +1,6 @@
 using System;
 
-namespace oppguidedpw
+namespace oop_pw2_ext_2425
 {
     public class DecimalToBinary : Conversion
     {
