@@ -12,5 +12,8 @@
 
     <ShellContent Title="Converter" ContentTemplate="{DataTemplate local:ConversorPage}" Route="ConversorPage" />
 
+    <ShellContent Title="Recover Password" ContentTemplate="{DataTemplate local:RecoverPasswordPage}" Route="RecoverPasswordPage" />
+
+
 
 </Shell>
