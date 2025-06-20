@@ -116,7 +116,7 @@ namespace pw2
 
         private async void OnOperationsClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(OperationsPage));
+            await Shell.Current.GoToAsync("///OperationsPage");
         }
 
         private void SaveOperation(string username, string input, string bits, string operationType, string output)
