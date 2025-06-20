@@ -8,5 +8,9 @@
 
     <ShellContent Title="Log In" ContentTemplate="{DataTemplate local:LoginRealPage}" Route="LoginRealPage" />
 
+    <ShellContent Title="User Info" ContentTemplate="{DataTemplate local:OperationsPage}" Route="OperationsPage" />
+
+    <ShellContent Title="Converter" ContentTemplate="{DataTemplate local:ConversorPage}" Route="ConversorPage" />
+
 
 </Shell>
