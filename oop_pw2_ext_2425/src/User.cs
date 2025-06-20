@@ -1,28 +1,32 @@
-public class User
-{
-    public string Name { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public int OperationCount { get; set; }
-
-    public User() { }
-
-    public User(string name, string username, string password, int operationCount)
+namespace oop_pw2_ext_2425;
+    public class User
     {
-        Name = name;
-        Username = username;
-        Password = password;
-        OperationCount = operationCount;
-    }
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int OperationCount { get; set; }
 
-    public string ToCsv()
-    {
-        return $"{Name},{Username},{Password},{OperationCount}";
-    }
+    public User()
+    { }
 
-    public static User FromCsv(string line)
-    {
-        var parts = line.Split(',');
-        return new User(parts[0], parts[1], parts[2], int.Parse(parts[3]));
-    }
+        public User(string name, string username, string password, int operationCount)
+        {
+            Name = name;
+            Username = username;
+            Password = password;
+            OperationCount = operationCount;
+        }
+
+        public string ToCsv()
+        {
+            return $"{Name},{Username},{Password},{OperationCount}";
+        }
+
+        public static User FromCsv(string line)
+        {
+            var parts = line.Split(',');
+            return new User(parts[0], parts[1], parts[2], int.Parse(parts[3]));
+        }
+    
 }
+

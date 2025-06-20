@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace pw2;
+namespace oop_pw2_ext_2425;
 
 public static class MauiProgram
 {
