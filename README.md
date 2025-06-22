@@ -107,7 +107,7 @@ classDiagram
 
 ## Project Description
 
-### Funcionalidades principales
+### Main functionalities
 
 - The User class represents the users with their attributes and executed operations.
 - The Conversion class defines the interface for the different conversion types.
