@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Storage; 
 using pw2.conversions;
 
 namespace pw2
@@ -56,6 +51,18 @@ namespace pw2
             string input = inputEntry.Text;
             string command = btn.CommandParameter?.ToString() ?? "";
             string result = "";
+            int bits = 16;
+
+            if (!string.IsNullOrEmpty(bitsEntry?.Text))
+            {
+                bool parsed = int.TryParse(bitsEntry.Text, out bits);
+                if (!parsed || bits <= 0)
+                {
+                    await DisplayAlert("Error", "Please enter a valid positive number of bits.", "OK");
+                    inputEntry.Text = "";
+                    return;
+                }
+            }
 
             try
             {
@@ -65,7 +72,7 @@ namespace pw2
                         result = ConversionHelper.DecimalToBinary(input);
                         break;
                     case "DecimalToTwoComplement":
-                        result = ConversionHelper.DecimalToTwoComplement(input);
+                        result = ConversionHelper.DecimalToTwoComplement(input, bits);
                         break;
                     case "DecimalToOctal":
                         result = ConversionHelper.DecimalToOctal(input);
@@ -89,16 +96,17 @@ namespace pw2
                         await DisplayAlert("Error", "Select a valid conversion.", "OK");
                         return;
                 }
-                inputEntry.Text = result; 
-                string username = Preferences.Get("CurrentUser", "");
-                string bits = "";
-                SaveOperation(username, input, bits, command, result);
-                IncrementOperationCount(); 
 
+                inputEntry.Text = result;
+                string username = Preferences.Get("CurrentUser", "");
+                string bitsText = bits > 0 ? bits.ToString() : "";
+                SaveOperation(username, input, bitsText, command, result);
+                IncrementOperationCount();
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Conversion failed: {ex.Message}", "OK");
+                inputEntry.Text = "";
             }
         }
 

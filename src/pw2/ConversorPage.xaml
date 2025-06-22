@@ -21,9 +21,19 @@
                    IsReadOnly="True"
                    TextColor="White"
                    BackgroundColor="#1F1F1F"
-                   HorizontalOptions="FillAndExpand"
                    HeightRequest="50"
                    Margin="0,0,0,15"/>
+            
+            <Label Text="Number of bits:" TextColor="White" FontSize="18" />
+
+            <Entry x:Name="bitsEntry"
+            Placeholder="Enter number of bits"
+            Keyboard="Numeric"
+            TextColor="White"
+            BackgroundColor="#1F1F1F"
+            HeightRequest="40"
+            Margin="0,5,0,15" />
+
 
             <Grid ColumnSpacing="8" RowSpacing="8">
                 <Grid.RowDefinitions>
