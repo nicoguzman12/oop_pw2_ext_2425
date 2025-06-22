@@ -1,8 +1,3 @@
-using System;
-using System.IO;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Storage;
-
 namespace pw2
 {
     public partial class OperationsPage : ContentPage
@@ -10,7 +5,6 @@ namespace pw2
         public OperationsPage()
         {
             InitializeComponent();
-            LoadUserData();
         }
 
         private void LoadUserData()
@@ -40,7 +34,7 @@ namespace pw2
                 }
             }
 
-            // Load operations history
+            //load operations history
             string opFilePath = Path.Combine(FileSystem.AppDataDirectory, "operations.csv");
             if (File.Exists(opFilePath))
             {
@@ -79,5 +73,12 @@ namespace pw2
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
+
+        protected override void OnAppearing()  //for loading history while being inside the app
+        {
+            base.OnAppearing();
+            LoadUserData();
+        }
+
     }
 }
