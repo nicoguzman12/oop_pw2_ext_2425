@@ -89,10 +89,10 @@ namespace pw2
                         await DisplayAlert("Error", "Select a valid conversion.", "OK");
                         return;
                 }
-                resultLabel.Text = result; 
+                inputEntry.Text = result; 
                 string username = Preferences.Get("CurrentUser", "");
                 string bits = "";
-                SaveOperation(username, input, bits, command, result);               
+                SaveOperation(username, input, bits, command, result);
                 IncrementOperationCount(); 
 
             }

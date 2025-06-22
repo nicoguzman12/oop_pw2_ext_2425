@@ -78,7 +78,8 @@
 
             <Label x:Name="resultLabel" FontAttributes="Bold" FontSize="18" TextColor="#00FFC8" Margin="0,20,0,0" />
 
-            <Button Text="Operations" Clicked="OnOperationsClicked" BackgroundColor="#FFAA00" TextColor="#121212" CornerRadius="12" Margin="0,20,0,10" />
+            <Button Text="Operations" Clicked="OnOperationsClicked" BackgroundColor="#FFAA00" TextColor="#121212" CornerRadius="12" Margin="0" />
+
 
         </VerticalStackLayout>
     </ScrollView>
