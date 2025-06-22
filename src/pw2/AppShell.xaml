@@ -3,6 +3,8 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:pw2"
        x:Class="pw2.AppShell">
+    
+    <ShellContent Title="Main Page" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
 
     <ShellContent Title="Register" ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage" />
 
